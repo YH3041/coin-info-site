@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import Router from "./Router.tsx";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
@@ -57,10 +58,12 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
+    font-weight: 300;
     font-family: 'Open Sans', sans-serif;
     background-color: ${(props) => props.theme.bgColor};
     color: ${(props) => props.theme.textColor};
     height: 100%;
+    line-height: 1.2;
   }
   a {
     text-decoration: none;
@@ -73,6 +76,7 @@ function App() {
     <>
       <GlobalStyle />
       <Router />
+      <ReactQueryDevtools initialIsOpen={true} />
     </>
   );
 }
